@@ -10,6 +10,24 @@ var requestUserData = function(){
     $('#collapseOne').removeAttr('data-toggle');
     $('.my-data').css('color','#3c763d');
     $('.my-data').css('background-color','#dff0d8');
+
+    //TODO request user data
+    //Fill in
+
+    var user = {
+        fullName: "Mati Kask",
+        idCode: "234234234323",
+        address: "Veerenni 23, Tallinn, Estonia",
+        nationality: "EST",
+        email: "mati.kask@transferwise.com"
+    };
+
+    $('#fullName').val(user.fullName);
+    $('#idCode').val(user.idCode);
+    $('#address').val(user.address);
+    $('#nationality').val(user.nationality);
+    $('#email').val(user.email);
+
     $('#collapseTwo').toggle('toggle');
 }
 
