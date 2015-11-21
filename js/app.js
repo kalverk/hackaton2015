@@ -2,17 +2,7 @@ $(document).on("click", ".authButton", function(event) {
     event.preventDefault();
     console.log("auth button pressed");
     var dataId = event.currentTarget.getAttribute('data-id');
-    auth();
-    if(dataId==='overview.html'){
-        var hrefParts = window.location.href.split('/');
-        hrefParts[hrefParts.length-1] = 'overview.html';
-        window.location.href = hrefParts.join('/');
-    }else{
-        var hrefParts = window.location.href.split('/');
-        hrefParts[hrefParts.length-1] = 'application.html';
-        window.location.href = hrefParts.join('/');
-    }
-
+    auth(dataId);
 });
 
 var user = {
@@ -55,8 +45,9 @@ var getCheckedBoxes = function(){
 
 var confirmData = function(){
     var hrefParts = window.location.href.split('/');
-    hrefParts[hrefParts.length-1] = 'overview.html';
+    hrefParts[hrefParts.length-1] = 'loan_list.html';
     window.location.href = hrefParts.join('/');
+    window.location = hrefParts.join('/');
 }
 
 var sign = function() {
@@ -74,7 +65,7 @@ var sign = function() {
     });
 };
 
-var auth = function() {
+var auth = function(dataId) {
     window.hwcrypto.getCertificate({lang: 'en'}).then(function(certificate) {
         var b64encoded = btoa(String.fromCharCode.apply(null, certificate.encoded));
         var c = new X509();
@@ -93,9 +84,16 @@ var auth = function() {
             }
         }
         setCookie('user',JSON.stringify(user),1);
-        var hrefParts = window.location.href.split('/');
-        hrefParts[hrefParts.length-1] = 'application.html';
-        window.location.href = hrefParts.join('/');
+
+        if(dataId==='overview.html'){
+            var hrefParts = window.location.href.split('/');
+            hrefParts[hrefParts.length-1] = 'overview.html';
+            window.location.href = hrefParts.join('/');
+        }else{
+            var hrefParts = window.location.href.split('/');
+            hrefParts[hrefParts.length-1] = 'application.html';
+            window.location.href = hrefParts.join('/');
+        }
     });
 };
 
