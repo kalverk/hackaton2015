@@ -11,9 +11,6 @@ var requestUserData = function(){
     $('.my-data').css('color','#3c763d');
     $('.my-data').css('background-color','#dff0d8');
     $('#collapseTwo').toggle('toggle');
-    //TODO close current tab
-    //Get data
-    //Fill form on next tab
 }
 
 var getCheckedBoxes = function(){
