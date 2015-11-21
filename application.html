@@ -40,9 +40,11 @@
                         <div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <div class="queries">
-                                    <h3>Data requested from:</h3>
-                                    <div class="row" style="padding-bottom:10px">
-                                        <div class="col-lg-6">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="row" style="padding-bottom:10px">
+                                            <span style="font-size: 24px;"><i class="glyphicon glyphicon-info-sign" title="Banks use credit rating to calculate optimal yield."></i> Create my credit rating based on:</span>
+                                        </div>
+                                        <div class="row" style="padding-bottom:10px">
                                             <div class="input-group">
                                                   <span class="input-group-addon">
                                                     <input type="checkbox" data-name="rahvastikuregister" checked>
@@ -50,9 +52,7 @@
                                                 <input type="text" class="form-control" disabled="true" value="Requests to population registry">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row" style="padding-bottom:10px">
-                                        <div class="col-lg-6">
+                                        <div class="row" style="padding-bottom:10px">
                                             <div class="input-group">
                                                   <span class="input-group-addon">
                                                     <input type="checkbox" data-name="pank" checked>
@@ -60,9 +60,7 @@
                                                 <input type="text" class="form-control" disabled="true" value="Requests to banks">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row" style="padding-bottom:10px">
-                                        <div class="col-lg-6">
+                                        <div class="row" style="padding-bottom:10px">
                                             <div class="input-group">
                                                   <span class="input-group-addon">
                                                     <input type="checkbox" data-name="sotsiaalvõrk" checked>
@@ -70,12 +68,10 @@
                                                 <input type="text" class="form-control" disabled="true" value="Requests to social media">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="row">
                                             <button type="button" class="request btn btn-primary" onclick="requestUserData()" style="width:100%">Next</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +85,7 @@
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form">
-                                    <h2 style="text-align: center;">Registration Form</h2>
+                                    <h3 style="text-align: center;">Confirm you data</h3>
                                     <div class="form-group">
                                         <label for="fullName" class="col-sm-3 control-label">Full Name</label>
                                         <div class="col-sm-9">
@@ -127,14 +123,14 @@
                                         <div class="col-sm-9 col-sm-offset-3">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox">I accept <a href="">terms and conditions</a>
+                                                    <input type="checkbox" checked>I accept <a href="">terms and conditions</a>
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
-                                            <button type="submit" class="signButton btn btn-primary btn-block" >Confirm</button>
+                                            <button type="submit" class="signButton btn btn-primary btn-block" onclick="confirmData()">Confirm</button>
                                         </div>
                                     </div>
                                 </form>

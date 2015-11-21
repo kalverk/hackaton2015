@@ -1,7 +1,18 @@
 $(document).on("click", ".authButton", function(event) {
     event.preventDefault();
     console.log("auth button pressed");
+    var dataId = event.currentTarget.getAttribute('data-id');
     auth();
+    if(dataId==='overview.html'){
+        var hrefParts = window.location.href.split('/');
+        hrefParts[hrefParts.length-1] = 'overview.html';
+        window.location.href = hrefParts.join('/');
+    }else{
+        var hrefParts = window.location.href.split('/');
+        hrefParts[hrefParts.length-1] = 'application.html';
+        window.location.href = hrefParts.join('/');
+    }
+
 });
 
 var user = {
@@ -42,6 +53,12 @@ var getCheckedBoxes = function(){
     return result;
 }
 
+var confirmData = function(){
+    var hrefParts = window.location.href.split('/');
+    hrefParts[hrefParts.length-1] = 'application.html';
+    window.location.href = hrefParts.join('/');
+}
+
 var sign = function() {
     var cert;
     window.hwcrypto.getCertificate({lang: 'en'}).then(function(certificate) {
@@ -71,7 +88,7 @@ var auth = function() {
                 user.nationality = parts[1];
             }else if(parts[0]==='CN'){
                 var cn = parts[1].split(',');
-                user.fullName = cn[0] + cn[1];
+                user.fullName = cn[0] + ' ' + cn[1];
                 user.idCode = cn[2];
             }
         }
