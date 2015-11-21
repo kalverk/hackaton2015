@@ -69,10 +69,10 @@ var auth = function() {
         var data = c.getSubjectString().split('/');
         for(var i=0;i<data.length;i+=1){
             var parts = data[i].split('=');
-            if(parts.[0]==='CN'){
-                user.fullName = parts.[1];
-            }else if(parts.[0]==='SN'){
-                user.idCode = parts.[1];
+            if(parts[0]==='CN'){
+                user.fullName = parts[1];
+            }else if(parts[0]==='SN'){
+                user.idCode = parts[1];
             }
         }
     });
