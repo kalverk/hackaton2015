@@ -30,6 +30,15 @@ var getCheckedBoxes = function(){
 var auth = function() {
     window.hwcrypto.getCertificate({lang: 'en'}).then(function(certificate) {
         var b64encoded = btoa(String.fromCharCode.apply(null, certificate.encoded));
+        var c = new X509();
+        c.readCertPEM(sCert);
+        c.getSerialNumberHex();
+        c.getIssuerString();
+        c.getNotBefore();
+        c.getNotAfter();
+        c.getSubjectString();
+        var f = function(s) { return KJUR.crypto.Util.hashString(s, 'sha1'); }
+
         console.log(certificate);
     });
 };
