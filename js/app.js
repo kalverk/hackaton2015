@@ -67,13 +67,18 @@ var auth = function() {
         var data = c.getSubjectString().split('/');
         for(var i=0;i<data.length;i+=1){
             var parts = data[i].split('=');
-            if(parts[0]==='CN'){
-                user.fullName = parts[1];
-            }else if(parts[0]==='SN'){
-                user.idCode = parts[1];
+            if(parts[0]==='C'){
+                user.nationality = parts[1];
+            }else if(parts[0]==='CN'){
+                var cn = parts[1].split(',');
+                user.fullName = cn[0] + cn[1];
+                user.idCode = cn[2];
             }
         }
         setCookie('user',JSON.stringify(user),1);
+        var hrefParts = window.location.href.split('/');
+        hrefParts[hrefParts.length-1] = 'application.html';
+        window.location.href = hrefParts.join('/');
     });
 };
 
