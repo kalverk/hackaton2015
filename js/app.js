@@ -4,8 +4,6 @@ $(document).on("click", ".authButton", function(event) {
     auth();
 });
 
-//TODO rename user when logged in
-
 var user = {
     fullName: "Mati Kask",
     idCode: "234234234323",
@@ -21,14 +19,14 @@ var requestUserData = function(){
     $('.my-data').css('color','#3c763d');
     $('.my-data').css('background-color','#dff0d8');
 
+    user = JSON.parse(getCookie('user'));
+
     //Fill user data
     $('#fullName').val(user.fullName);
     $('#idCode').val(user.idCode);
     $('#address').val(user.address);
     $('#nationality').val(user.nationality);
     $('#email').val(user.email);
-
-
 
     $('#collapseTwo').toggle('toggle');
 }
@@ -75,5 +73,24 @@ var auth = function() {
                 user.idCode = parts[1];
             }
         }
+        setCookie('user',JSON.stringify(user),1);
     });
 };
+
+var setCookie = function(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+var getCookie = function(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
