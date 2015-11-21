@@ -44,6 +44,21 @@ var getCheckedBoxes = function(){
     return result;
 }
 
+var sign = function() {
+    var cert;
+    window.hwcrypto.getCertificate({lang: 'en'}).then(function(certificate) {
+        cert = certificate;
+        var b64encoded = btoa(String.fromCharCode.apply(null, certificate.encoded));
+        return fetchHash(b64encoded);
+    }).then(function(digest) {
+        console.log("digest " + digest);
+        return window.hwcrypto.sign(cert, {type: 'SHA-256', hex: digest.hex}, {lang: 'en'});
+    }).then(function(signature) {
+        console.log("signature " + signature);
+        return createContainer(signature.hex);
+    });
+};
+
 var auth = function() {
     window.hwcrypto.getCertificate({lang: 'en'}).then(function(certificate) {
         var b64encoded = btoa(String.fromCharCode.apply(null, certificate.encoded));
