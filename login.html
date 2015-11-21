@@ -19,6 +19,7 @@
 
     <!-- Custom CSS -->
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -29,6 +30,23 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/hex2base.js" type="text/javascript"></script>
+    <script src="js/hwcrypto.js" type="text/javascript"></script>
+
+    <script language="JavaScript" type="text/javascript" src="js/ext/jsbn.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/ext/jsbn2.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/ext/rsa.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/ext/rsa2.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/ext/sha1.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/ext/base64.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/crypto-1.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/asn1hex-1.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/rsapem-1.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/rsasign-1.2.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/x509-1.1.6.min.js"></script>
+
 
 </head>
 
@@ -57,6 +75,11 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <a href="loan_list.html" class="btn btn-lg btn-success btn-block">Login</a>
+
+                                <br/>
+                                <h4><span>Or sign in with ID card</span></h4>
+
+                                <a class="authButton btn btn-lg btn-primary btn-block">ID card login</a>
                             </fieldset>
                         </form>
                     </div>

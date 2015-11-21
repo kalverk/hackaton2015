@@ -11,7 +11,7 @@ var user = {
     idCode: "234234234323",
     address: "Veerenni 23, Tallinn, Estonia",
     nationality: "EST",
-    email: "mati.kask@transferwise.com"
+    email: "coolemail@transferwise.com"
 };
 
 var requestUserData = function(){
@@ -64,13 +64,16 @@ var auth = function() {
         var b64encoded = btoa(String.fromCharCode.apply(null, certificate.encoded));
         var c = new X509();
         c.readCertPEM(b64encoded);
-        document.form1.serial1.value = c.getSerialNumberHex();
-        document.form1.issuer1.value = c.getIssuerString();
-        document.form1.notbefore1.value = c.getNotBefore();
-        document.form1.notafter1.value = c.getNotAfter();
-        document.form1.subject1.value = c.getSubjectString();
         var f = function(s) { return KJUR.crypto.Util.hashString(s, 'sha1'); }
-        document.form1.thumb1.value = f(c.hex);
-        console.log(certificate);
+        //Fill user data
+        var data = c.getSubjectString().split('/');
+        for(var i=0;i<data.length;i+=1){
+            var parts = data[i].split('=');
+            if(parts.[0]==='CN'){
+                user.fullName = parts.[1];
+            }else if(parts.[0]==='SN'){
+                user.idCode = parts.[1];
+            }
+        }
     });
 };
