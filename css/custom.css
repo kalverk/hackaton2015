@@ -3,6 +3,15 @@
 
 }
 
+.sidebar {
+    margin-top: 0;
+}
+
+td img {
+    padding: 10px;
+    max-height: 40px;
+}
+
 .fa-green {
     color: #05c705;
 }
