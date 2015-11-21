@@ -55,7 +55,7 @@ var getCheckedBoxes = function(){
 
 var confirmData = function(){
     var hrefParts = window.location.href.split('/');
-    hrefParts[hrefParts.length-1] = 'application.html';
+    hrefParts[hrefParts.length-1] = 'overview.html';
     window.location.href = hrefParts.join('/');
 }
 
